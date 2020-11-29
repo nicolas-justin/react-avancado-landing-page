@@ -38,9 +38,9 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const Index = ({ logo }: LandingPageProps) => (
+const Index = ({ logo, header }: LandingPageProps) => (
   <>
-    <SectionHero logo={logo} />
+    <SectionHero logo={logo} header={header} />
     <SectionAboutProject />
     <SectionTech />
     <SectionConcepts />

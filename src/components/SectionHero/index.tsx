@@ -1,19 +1,38 @@
 import React from 'react';
 
+/**
+ * Types
+ */
+import { LogoProps } from 'types/api';
+
+/**
+ * Components
+ */
 import Logo from 'components/Logo';
 import Button from 'components/Button';
+import Container from 'components/Container';
+
+/**
+ * Utils
+ */
+import { gaEvent } from 'utils/ga';
+
+/**
+ * Styles
+ */
 import * as S from './styles';
 
-import { gaEvent } from 'utils/ga';
-import Container from 'components/Container';
+type Props = {
+  logo: LogoProps;
+};
 
 const onClick = () =>
   gaEvent({ action: 'click', category: 'cta', label: 'hero button' });
 
-const SectionHero = () => (
+const SectionHero = ({ logo }: Props) => (
   <S.Wrapper>
     <Container>
-      <Logo />
+      <Logo {...logo} />
 
       <S.Content>
         <S.TextBlock>

@@ -8,6 +8,11 @@ import client from 'graphql/client';
 import GET_LANDING_PAGE from 'graphql/queries/getLandingPage';
 
 /**
+ * Types
+ */
+import { LandingPageProps } from 'types/api';
+
+/**
  * Components
  */
 import SectionHero from 'components/SectionHero';
@@ -33,9 +38,9 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const Index = () => (
+const Index = ({ logo }: LandingPageProps) => (
   <>
-    <SectionHero />
+    <SectionHero logo={logo} />
     <SectionAboutProject />
     <SectionTech />
     <SectionConcepts />

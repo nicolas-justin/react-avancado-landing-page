@@ -1,5 +1,15 @@
 import React from 'react';
+import { GetStaticProps } from 'next';
 
+/**
+ * GraphQL
+ */
+import client from 'graphql/client';
+import GET_LANDING_PAGE from 'graphql/queries/getLandingPage';
+
+/**
+ * Components
+ */
 import SectionHero from 'components/SectionHero';
 import SectionAboutProject from 'components/SectionAboutProject';
 import SectionTech from 'components/SectionTech';
@@ -12,6 +22,16 @@ import SectionReviews from 'components/SectionReviews';
 import SectionFaq from 'components/SectionFaq';
 import Footer from 'components/Footer';
 import JsonSchema from 'components/JsonSchema';
+
+export const getStaticProps: GetStaticProps = async () => {
+  const { landingPage } = await client.request(GET_LANDING_PAGE);
+
+  return {
+    props: {
+      ...landingPage,
+    },
+  };
+};
 
 const Index = () => (
   <>

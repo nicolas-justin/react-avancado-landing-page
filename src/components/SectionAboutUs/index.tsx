@@ -1,25 +1,42 @@
 import React from 'react';
 
+/**
+ * Types
+ */
+import { SectionAboutUsProps } from 'types/api';
+
+/**
+ * Components
+ */
 import Heading from 'components/Heading';
 import Container from 'components/Container';
 import ProfileCard from 'components/ProfileCard';
 
+/**
+ * Temporary until bug fix
+ * The 3.1.6+ versions of strapi are returning null in nested GraphQL request
+ * @see https://github.com/strapi/strapi/issues/8610
+ */
 import content from './content';
+
+/**
+ * Styles
+ */
 import * as S from './styles';
 
-const SectionAboutUs = () => (
+const SectionAboutUs = ({ title, authors }: SectionAboutUsProps) => (
   <Container>
-    <Heading reverseColor>Quem somos nós?</Heading>
+    <Heading reverseColor>{title}</Heading>
 
     <S.Content>
-      {content.map((profile) => (
+      {authors.map(({ name, role, photo, description, socialLinks }, index) => (
         <ProfileCard
-          key={profile.name}
-          name={profile.name}
-          role={profile.role}
-          image={profile.image}
-          socialLinks={profile.socialLinks}
-          description={profile.description}
+          key={index}
+          name={name}
+          role={role}
+          photo={photo}
+          socialLinks={socialLinks || content[index]}
+          description={description}
         />
       ))}
     </S.Content>

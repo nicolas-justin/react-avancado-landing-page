@@ -9,6 +9,12 @@ export type ConceptItem = {
   title: string;
 };
 
+export type ModuleItem = {
+  title: string;
+  subtitle: string;
+  description: string;
+};
+
 export type LogoProps = {
   alternativeText: string;
   url: string;
@@ -46,10 +52,16 @@ export type SectionConceptsProps = {
   concepts: ConceptItem[];
 };
 
+export type SectionModulesProps = {
+  title: string;
+  modules: ModuleItem[];
+};
+
 export type LandingPageProps = {
   logo: LogoProps;
   header: HeaderProps;
   sectionAboutProject: SectionAboutProjectProps;
   sectionTech: SectionTechProps;
   sectionConcepts: SectionConceptsProps;
+  sectionModules: SectionModulesProps;
 };

@@ -1,16 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ResizeObserver from 'resize-observer-polyfill';
 
+/**
+ * Types
+ */
+import { Review } from 'types/api';
+
+/**
+ * Utils
+ */
+import { getImageUrl } from 'utils/getImageUrl';
+
+/**
+ * Styles
+ */
 import * as S from './styles';
 
-type Props = {
+type Props = Review & {
   id: number;
-  name: string;
-  image: string;
-  description: string;
 };
 
-const ReviewCard: React.FC<Props> = ({ id, name, image, description }) => {
+const ReviewCard: React.FC<Props> = ({ id, name, text, photo }) => {
+  const [seeMore, setSeeMore] = useState(false);
+
+  const handleChangeSeeMore = () => setSeeMore(!seeMore);
+
   useEffect(() => {
     const texts = document.querySelectorAll('p.description');
 
@@ -30,28 +44,18 @@ const ReviewCard: React.FC<Props> = ({ id, name, image, description }) => {
   return (
     <S.Card>
       <S.User>
-        <S.Image>
-          <source
-            srcSet={require(`@images/reviews/${image}?webp`)}
-            type="image/webp"
-          />
-          <source
-            srcSet={require(`@images/reviews/${image}`)}
-            type="image/jpg"
-          />
-          <img
-            src={require(`@images/reviews/${image}`)}
-            loading="lazy"
-            alt={name}
-          />
-        </S.Image>
+        <S.Image src={getImageUrl(photo.url)} alt={name} loading="lazy" />
         <S.Name>{name}</S.Name>
       </S.User>
       <S.Text>
-        <input type="checkbox" id={`review-${id}`} />
-        <p className="description">{description}</p>
+        <input
+          type="checkbox"
+          id={`review-${id}`}
+          onChange={handleChangeSeeMore}
+        />
+        <p className="description">{text}</p>
         <label className="label-more" htmlFor={`review-${id}`}>
-          Ver tudo
+          {!seeMore ? 'Ver tudo' : 'Ver menos'}
         </label>
       </S.Text>
     </S.Card>

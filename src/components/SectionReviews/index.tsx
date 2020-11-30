@@ -1,11 +1,21 @@
 import React from 'react';
 import Slider from 'react-slick';
 
+/**
+ * Types
+ */
+import { SectionReviewsProps } from 'types/api';
+
+/**
+ * Components
+ */
 import Container from 'components/Container';
 import Heading from 'components/Heading';
 import ReviewCard from 'components/ReviewCard';
 
-import reviews from './content';
+/**
+ * Styles
+ */
 import * as S from './styles';
 
 const settings = {
@@ -30,19 +40,19 @@ const settings = {
   ],
 };
 
-const SectionReviews = () => (
+const SectionReviews = ({ title, reviews }: SectionReviewsProps) => (
   <Container>
-    <Heading reverseColor>Junte-se a mais de 200 mil alunos</Heading>
+    <Heading reverseColor>{title}</Heading>
 
     <S.Content>
       <Slider {...settings}>
-        {reviews.map(({ name, image, description }, index) => (
+        {reviews.map(({ name, text, photo }, index) => (
           <ReviewCard
+            id={index}
             key={index}
             name={name}
-            image={image}
-            description={description}
-            id={index}
+            text={text}
+            photo={photo}
           />
         ))}
       </Slider>

@@ -51,6 +51,7 @@ const SectionHero = ({ logo, header }: Props) => (
         <S.Image
           src={getImageUrl(header.image.url)}
           alt={header.image.alternativeText}
+          loading="lazy"
         />
       </S.Content>
     </Container>

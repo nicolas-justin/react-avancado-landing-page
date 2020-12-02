@@ -1,19 +1,29 @@
 import React from 'react';
 
+/**
+ * Types
+ */
+import { SectionFaqProps } from 'types/api';
+
+/**
+ * Components
+ */
 import Container from 'components/Container';
 import Heading from 'components/Heading';
 
-import faq from './content';
+/**
+ * Styles
+ */
 import * as S from './styles';
 
-const SectionFaq = () => (
+const SectionFaq = ({ title, questions }: SectionFaqProps) => (
   <S.Wrapper>
     <S.Content>
       <Container>
-        <Heading reverseColor>FAQ</Heading>
+        <Heading reverseColor>{title}</Heading>
 
         <S.Questions>
-          {faq.map(({ question, answer }, index) => (
+          {questions.map(({ question, answer }, index) => (
             <S.Question key={index}>
               <Heading lineBottom reverseColor>
                 {question}

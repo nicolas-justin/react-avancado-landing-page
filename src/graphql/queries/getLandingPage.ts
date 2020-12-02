@@ -134,6 +134,12 @@ const GET_LANDING_PAGE = /* GraphQL */ `
     }
   }
 
+  fragment footer on LandingPage {
+    footer {
+      description
+    }
+  }
+
   query GET_LANDING_PAGE {
     landingPage {
       ...logo
@@ -148,6 +154,7 @@ const GET_LANDING_PAGE = /* GraphQL */ `
       ...sectionReviews
       ...sectionFaq
       ...extraQuestion
+      ...footer
     }
   }
 `;

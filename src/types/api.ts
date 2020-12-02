@@ -115,6 +115,10 @@ export type ExtraQuestionProps = {
   hidden: boolean;
 };
 
+export type FooterProps = {
+  description: string;
+};
+
 export type LandingPageProps = {
   logo: LogoProps;
   header: HeaderProps;
@@ -128,4 +132,5 @@ export type LandingPageProps = {
   sectionReviews: SectionReviewsProps;
   sectionFaq: SectionFaqProps;
   extraQuestion: ExtraQuestionProps;
+  footer: FooterProps;
 };

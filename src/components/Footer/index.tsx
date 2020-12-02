@@ -1,20 +1,24 @@
 import React from 'react';
 
+/**
+ * Types
+ */
+import { FooterProps } from 'types/api';
+
+/**
+ * Components
+ */
 import Container from 'components/Container';
 
+/**
+ * Styles
+ */
 import * as S from './styles';
 
-const Footer = () => (
+const Footer = ({ description }: FooterProps) => (
   <S.Wrapper>
     <Container>
-      <p>
-        Desenvolvido por{' '}
-        <a href="https://willianjusten.com.br/">Willian Justen </a>e
-        <a href="https://guilouro.dev"> Guilherme Louro</a>
-      </p>
-      <p>
-        Design por <a href="https://dribbble.com/vmarcosp">Marcos Oliveira</a>
-      </p>
+      <div dangerouslySetInnerHTML={{ __html: description }} />
     </Container>
   </S.Wrapper>
 );

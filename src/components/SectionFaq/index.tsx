@@ -3,7 +3,7 @@ import React from 'react';
 /**
  * Types
  */
-import { SectionFaqProps } from 'types/api';
+import { SectionFaqProps, ExtraQuestionProps } from 'types/api';
 
 /**
  * Components
@@ -16,14 +16,19 @@ import Heading from 'components/Heading';
  */
 import * as S from './styles';
 
-const SectionFaq = ({ title, questions }: SectionFaqProps) => (
+type Props = {
+  sectionFaq: SectionFaqProps;
+  extraQuestion: ExtraQuestionProps;
+};
+
+const SectionFaq = ({ sectionFaq, extraQuestion }: Props) => (
   <S.Wrapper>
     <S.Content>
       <Container>
-        <Heading reverseColor>{title}</Heading>
+        <Heading reverseColor>{sectionFaq.title}</Heading>
 
         <S.Questions>
-          {questions.map(({ question, answer }, index) => (
+          {sectionFaq.questions.map(({ question, answer }, index) => (
             <S.Question key={index}>
               <Heading lineBottom reverseColor>
                 {question}
@@ -33,29 +38,14 @@ const SectionFaq = ({ title, questions }: SectionFaqProps) => (
           ))}
         </S.Questions>
 
-        <S.ExtraQuestion>
-          <Heading lineBottom reverseColor>
-            Eu tenho outra dúvida!
-          </Heading>
-          <p>
-            Sem problemas! Você pode acessar qualquer uma das{' '}
-            <a
-              href="https://willianjusten.com.br/about"
-              target="_blank"
-              rel="noreferrer"
-            >
-              minhas redes sociais
-            </a>{' '}
-            ou entrar no{' '}
-            <a
-              href="https://willianjusten-cursos.slack.com/join/shared_invite/zt-g20h37hj-GnSb_y7PXCRjS92N9T8LCQ#/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              slack do nosso curso.
-            </a>
-          </p>
-        </S.ExtraQuestion>
+        {!extraQuestion.hidden && (
+          <S.ExtraQuestion>
+            <Heading lineBottom reverseColor>
+              {extraQuestion.question}
+            </Heading>
+            <div dangerouslySetInnerHTML={{ __html: extraQuestion.answer }} />
+          </S.ExtraQuestion>
+        )}
       </Container>
     </S.Content>
   </S.Wrapper>

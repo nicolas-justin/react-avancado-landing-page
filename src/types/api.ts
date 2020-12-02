@@ -109,6 +109,12 @@ export type SectionFaqProps = {
   questions: Question[];
 };
 
+export type ExtraQuestionProps = {
+  question: string;
+  answer: string;
+  hidden: boolean;
+};
+
 export type LandingPageProps = {
   logo: LogoProps;
   header: HeaderProps;
@@ -121,4 +127,5 @@ export type LandingPageProps = {
   sectionAboutUs: SectionAboutUsProps;
   sectionReviews: SectionReviewsProps;
   sectionFaq: SectionFaqProps;
+  extraQuestion: ExtraQuestionProps;
 };

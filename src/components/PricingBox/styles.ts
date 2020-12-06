@@ -7,7 +7,7 @@ export const Box = styled.section`
     display: flex;
     flex-direction: column;
     border-radius: 0;
-    background: ${theme.colors.secondaryBg};
+    background: ${theme.colors.white};
     padding: ${theme.spacings.medium} calc(${theme.spacings.medium} / 2);
     margin: 0 auto ${theme.spacings.large};
 
@@ -53,7 +53,7 @@ export const DiscountPrice = styled.p`
     font-weight: ${theme.font.bold};
 
     span {
-      color: ${theme.colors.white};
+      color: ${theme.colors.texts};
       font-size: ${theme.font.sizes.medium};
     }
   `}
@@ -69,7 +69,7 @@ export const BenefitsList = styled.div`
 
   li {
     ${({ theme }) => css`
-      color: ${theme.colors.white};
+      color: ${theme.colors.black};
       font-size: ${theme.font.sizes.small};
       position: relative;
       padding-left: ${theme.spacings.small};

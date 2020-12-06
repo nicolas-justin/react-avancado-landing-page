@@ -2,9 +2,9 @@ import styled, { css } from 'styled-components';
 
 export const Card = styled.div`
   ${({ theme }) => css`
-    color: ${theme.colors.white};
+    color: ${theme.colors.texts};
     border-radius: ${theme.border.radius};
-    background-color: ${theme.colors.secondaryBg};
+    background-color: ${theme.colors.white};
     padding: ${theme.spacings.medium};
     margin: ${theme.spacings.medium} 1.2rem;
     min-height: 26rem;

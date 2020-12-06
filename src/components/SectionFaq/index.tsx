@@ -25,14 +25,12 @@ const SectionFaq = ({ sectionFaq, extraQuestion }: Props) => (
   <S.Wrapper>
     <S.Content>
       <Container>
-        <Heading reverseColor>{sectionFaq.title}</Heading>
+        <Heading>{sectionFaq.title}</Heading>
 
         <S.Questions>
           {sectionFaq.questions.map(({ question, answer }, index) => (
             <S.Question key={index}>
-              <Heading lineBottom reverseColor>
-                {question}
-              </Heading>
+              <Heading lineBottom>{question}</Heading>
               <div dangerouslySetInnerHTML={{ __html: answer }} />
             </S.Question>
           ))}
@@ -40,9 +38,7 @@ const SectionFaq = ({ sectionFaq, extraQuestion }: Props) => (
 
         {!extraQuestion.hidden && (
           <S.ExtraQuestion>
-            <Heading lineBottom reverseColor>
-              {extraQuestion.question}
-            </Heading>
+            <Heading lineBottom>{extraQuestion.question}</Heading>
             <div dangerouslySetInnerHTML={{ __html: extraQuestion.answer }} />
           </S.ExtraQuestion>
         )}

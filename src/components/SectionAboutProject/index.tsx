@@ -35,7 +35,7 @@ const SectionAboutProject = ({
           loading="lazy"
         />
         <div>
-          <Heading reverseColor>{title}</Heading>
+          <Heading>{title}</Heading>
           <S.Text dangerouslySetInnerHTML={{ __html: description }} />
         </div>
       </S.Container>

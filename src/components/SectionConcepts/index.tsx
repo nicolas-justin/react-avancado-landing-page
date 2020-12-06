@@ -19,9 +19,7 @@ import * as S from './styles';
 const SectionConcepts = ({ title, concepts }: SectionConceptsProps) => (
   <Container>
     <S.Box>
-      <Heading lineBottom reverseColor>
-        {title}
-      </Heading>
+      <Heading lineBottom>{title}</Heading>
       <S.List>
         {concepts.map(({ title }, index) => (
           <S.Item key={index}>{title}</S.Item>

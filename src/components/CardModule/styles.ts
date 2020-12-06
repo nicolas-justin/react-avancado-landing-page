@@ -2,9 +2,9 @@ import styled, { css } from 'styled-components';
 
 export const Card = styled.article`
   ${({ theme }) => css`
-    background-color: ${theme.colors.secondaryBg};
+    background-color: ${theme.colors.white};
     padding: ${theme.spacings.medium};
-    color: ${theme.colors.white};
+    color: ${theme.colors.texts};
     font-size: ${theme.font.sizes.xsmall};
     border-radius: ${theme.border.radius};
   `}

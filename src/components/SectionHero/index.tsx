@@ -38,7 +38,6 @@ const SectionHero = ({ logo, header }: Props) => (
 
       <S.Content>
         <S.TextBlock>
-          <S.HugeTitle>Black Friday</S.HugeTitle>
           <S.Title>{header.title}</S.Title>
           <S.Description>{header.description}</S.Description>
           <S.ButtonWrapper>

@@ -26,9 +26,8 @@ export const ButtonWrapper = styled.a<Props>`
   ${({ theme, wide, withPrice }) => css`
     background: ${theme.colors.primary};
     border-radius: ${theme.border.radius};
-    color: ${theme.colors.black};
-    font-size: ${theme.font.sizes.small};
-    font-weight: bold;
+    color: ${theme.colors.white};
+    font-size: ${theme.font.sizes.xsmall};
     text-decoration: none;
     text-align: center;
     white-space: nowrap;
